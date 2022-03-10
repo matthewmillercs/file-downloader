@@ -14,8 +14,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 40px;
+  padding: 20px;
   z-index: 1000;
+  text-align: center;
 }
 
 .close-button {
@@ -25,7 +26,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 4px;
+  margin: 8px;
 }
 .close-button:hover {
   background-color: #ededed;

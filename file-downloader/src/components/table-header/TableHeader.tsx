@@ -2,12 +2,12 @@ import { FC } from "react";
 import { Checkbox } from "../common/checkbox/Checkbox";
 import { FileData } from "../types";
 import downloadIcon from "../../assets/DownloadIcon.png";
+import "./table-header.scss";
 
 interface TableHeaderProps {
   files: FileData[];
   checkedFiles: FileData[];
   isIndeterminate: boolean;
-  showModal: boolean;
   setShowModal: (show: boolean) => void;
   handleSelectAllChecked: (event: any) => void;
 }
@@ -16,11 +16,11 @@ export const TableHeader: FC<TableHeaderProps> = (props) => {
   const {
     files,
     checkedFiles,
-    showModal,
     setShowModal,
     handleSelectAllChecked,
     isIndeterminate,
   } = props;
+
   return (
     <header className="top-bar">
       <div className="select-all">

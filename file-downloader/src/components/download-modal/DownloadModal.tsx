@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Modal } from "../common/modal/Modal";
 import { FileData } from "../types";
+import "./download-modal.scss";
 
 interface DownloadModalProps {
   showModal: boolean;
@@ -18,15 +19,19 @@ export const DownloadModal: FC<DownloadModalProps> = (props) => {
     <Modal showModal={showModal} handleClose={handleCloseModal}>
       <div className="download-modal">
         {checkedFiles.length ? (
-          checkedFiles.map((file) => {
-            return (
-              <div className="download-files">
-                {"Device: " + file.device + ", Path: " + file.path}
-              </div>
-            );
-          })
+          <div>
+            <h3>Downloading the following files:</h3>
+            {checkedFiles.map((file) => {
+              return (
+                <div className="download-files">
+                  <div>{"Device: " + file.device}</div>
+                  <div>{"Path: " + file.path}</div>
+                </div>
+              );
+            })}
+          </div>
         ) : (
-          <>No files selected.</>
+          <h3>No files selected.</h3>
         )}
       </div>
     </Modal>

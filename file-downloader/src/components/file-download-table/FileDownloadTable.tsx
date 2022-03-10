@@ -22,6 +22,7 @@ export const FileDownloadTable = () => {
   const [checkedFiles, setCheckedFiles] = useState<FileData[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
 
+  // mark current file as checked when checkbox is selected
   const handleOnChecked = (event: any, file: FileData) => {
     const checked = event.target.checked;
     setFiles(
@@ -43,12 +44,14 @@ export const FileDownloadTable = () => {
     );
   }, [checkedFiles, files]);
 
+  // update checkedFiles when files dependency changes to reflect new selections
   useEffect(() => {
     if (files.length) {
       setCheckedFiles(files.filter((file) => file.selected !== false));
     }
   }, [files, setCheckedFiles]);
 
+  // mark all available files as checked when select all is clicked
   const handleSelectAllChecked = (event: any) => {
     const checked = event.target.checked;
     setFiles(
@@ -66,7 +69,6 @@ export const FileDownloadTable = () => {
       <TableHeader
         files={files}
         checkedFiles={checkedFiles}
-        showModal={showModal}
         isIndeterminate={isIndeterminate}
         setShowModal={setShowModal}
         handleSelectAllChecked={handleSelectAllChecked}

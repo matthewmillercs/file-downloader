@@ -1,0 +1,28 @@
+.selected-count {
+  width: 200px;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 25px;
+  align-items: center;
+}
+
+.download-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.download-button:hover {
+  background-color: #ededed;
+}

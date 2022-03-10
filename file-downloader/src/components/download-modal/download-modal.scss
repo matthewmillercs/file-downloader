@@ -1,0 +1,16 @@
+.download-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.download-files {
+  font-size: 14px;
+  border-bottom: 2px solid darkgray;
+  padding: 20px;
+  text-align: left;
+}
+
+.download-files:last-child {
+  border-bottom: none;
+}
