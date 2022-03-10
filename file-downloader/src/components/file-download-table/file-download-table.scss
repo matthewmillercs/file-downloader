@@ -1,0 +1,44 @@
+.container {
+  margin: 20px;
+  border: 1px solid darkgray;
+  border-bottom: none;
+}
+
+.table-container {
+  overflow: auto;
+}
+
+.download-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.download-button:hover {
+  background-color: #ededed;
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-bar > * {
+  padding: 20px;
+}
+
+.select-all {
+  padding-left: 20px;
+}

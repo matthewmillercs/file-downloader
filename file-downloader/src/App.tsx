@@ -4,7 +4,7 @@ import { FileDownloadTable } from "./components/file-download-table/FileDownload
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <FileDownloadTable></FileDownloadTable>
     </div>
   );
