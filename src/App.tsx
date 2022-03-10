@@ -1,10 +1,11 @@
 import React from "react";
-import { FileDownloadTable } from "./components/file-download-table/FileDownloadTable";
+import { FileDownloader } from "./components/file-downloader/FileDownloader";
+import { mockData } from "./components/file-downloader/configs/mock-data";
 
 function App() {
   return (
     <div>
-      <FileDownloadTable></FileDownloadTable>
+      <FileDownloader data={mockData}></FileDownloader>
     </div>
   );
 }

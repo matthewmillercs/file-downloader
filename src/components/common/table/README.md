@@ -1,0 +1,1 @@
+The Table component takes in a column configuration which consists of an array of columns. Every column should be of type Column, containing a title and rendering information. The data passed into the Table can consist of any array of objects, with the information to be used by the column configuration.

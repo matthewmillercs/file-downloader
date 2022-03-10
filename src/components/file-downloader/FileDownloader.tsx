@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
-import { mockData } from "./configs/mock-data";
+import { FC, useEffect, useState } from "react";
 import { FileData } from "../types";
-import { Modal } from "../common/modal/Modal";
 import { Table } from "../common/table/Table";
 import { getFileTableColumns } from "./configs/get-columns";
 import "./styles/file-download-table.scss";
 import { TableHeader } from "../table-header/TableHeader";
 import { DownloadModal } from "../download-modal/DownloadModal";
 
-export const FileDownloadTable = () => {
+interface FileDownloaderProps {
+  data: FileData[];
+}
+
+export const FileDownloader: FC<FileDownloaderProps> = (props) => {
+  const { data } = props;
   const [files, setFiles] = useState<FileData[]>(
-    mockData.map((data, index) => {
+    data.map((dataItem, index) => {
       return {
-        ...data,
+        ...dataItem,
         id: index,
         selected: false,
       };
