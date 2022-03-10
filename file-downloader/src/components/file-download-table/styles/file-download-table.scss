@@ -1,7 +1,8 @@
 .container {
   margin: 20px;
-  border: 1px solid darkgray;
+  border: 1px solid #ededed;
   border-bottom: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .table-container {
@@ -16,7 +17,7 @@
   border: none;
   background-color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .download-button:hover {
@@ -30,15 +31,33 @@
   align-items: center;
 }
 
+.selected-count {
+  width: 200px;
+}
+
 .top-bar {
   display: flex;
   flex-direction: row;
+  gap: 20px;
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 25px;
+  align-items: center;
 }
 
-.top-bar > * {
-  padding: 20px;
+.download-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.select-all {
-  padding-left: 20px;
+.download-files {
+  font-size: 12px;
+}
+
+.status-available {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

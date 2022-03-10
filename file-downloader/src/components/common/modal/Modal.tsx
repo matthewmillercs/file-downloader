@@ -1,4 +1,5 @@
 import { FC } from "react";
+import closeButton from "../../../assets/CloseIcon.png";
 import "./modal.scss";
 
 interface ModalProps {
@@ -14,8 +15,10 @@ export const Modal: FC<ModalProps> = (props) => {
     <>
       <div className="overlay"></div>
       <div className="modal">
+        <button className="close-button" onClick={handleClose}>
+          <img src={closeButton} width="24px" height="24px" />
+        </button>
         <div>{children}</div>
-        <button onClick={handleClose}>Close Modal</button>
       </div>
     </>
   );

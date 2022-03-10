@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { mockData } from "./configs/mock-data";
-import { Checkbox } from "../common-components/checkbox/Checkbox";
-import downloadIcon from "../../assets/DownloadIcon.png";
 import { FileData } from "../types";
-import { Modal } from "../common-components/modal/Modal";
-import { Table } from "../common-components/table/Table";
+import { Modal } from "../common/modal/Modal";
+import { Table } from "../common/table/Table";
 import { getFileTableColumns } from "./configs/get-columns";
-import "./file-download-table.scss";
+import "./styles/file-download-table.scss";
+import { TableHeader } from "../table-header/TableHeader";
+import { DownloadModal } from "../download-modal/DownloadModal";
 
 export const FileDownloadTable = () => {
-  const [fileList, setFileList] = useState<FileData[]>(
+  const [files, setFiles] = useState<FileData[]>(
     mockData.map((data, index) => {
       return {
         ...data,
@@ -22,10 +22,10 @@ export const FileDownloadTable = () => {
   const [checkedFiles, setCheckedFiles] = useState<FileData[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleOnChecked = (event: any, file: any) => {
+  const handleOnChecked = (event: any, file: FileData) => {
     const checked = event.target.checked;
-    setFileList(
-      fileList.map((curFile) => {
+    setFiles(
+      files.map((curFile) => {
         if (file.id === curFile.id) {
           curFile.selected = checked;
         }
@@ -39,20 +39,20 @@ export const FileDownloadTable = () => {
     setIsIndeterminate(
       checkedFiles.length > 0 &&
         checkedFiles.length <
-          fileList.filter((file) => file.status === "Available").length
+          files.filter((file) => file.status === "Available").length
     );
-  }, [checkedFiles, fileList]);
+  }, [checkedFiles, files]);
 
   useEffect(() => {
-    if (fileList.length) {
-      setCheckedFiles(fileList.filter((file) => file.selected !== false));
+    if (files.length) {
+      setCheckedFiles(files.filter((file) => file.selected !== false));
     }
-  }, [fileList, setCheckedFiles]);
+  }, [files, setCheckedFiles]);
 
   const handleSelectAllChecked = (event: any) => {
     const checked = event.target.checked;
-    setFileList(
-      fileList.map((curFile) => {
+    setFiles(
+      files.map((curFile) => {
         if (curFile.status === "Available") {
           curFile.selected = checked;
         }
@@ -61,51 +61,27 @@ export const FileDownloadTable = () => {
     );
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <div className="container">
-      <div className="top-bar">
-        <div className="select-all">
-          <Checkbox
-            onChange={(event) => handleSelectAllChecked(event)}
-            checked={
-              checkedFiles.length ===
-              fileList.filter((file) => file.status === "Available").length
-            }
-            indeterminate={isIndeterminate}
-          ></Checkbox>
-        </div>
-        <div>
-          {checkedFiles.length > 0
-            ? "Selected " + checkedFiles.length
-            : "None Selected"}
-        </div>
-        <button
-          className="download-button"
-          onClick={() => {
-            setShowModal(true);
-          }}
-        >
-          <img src={downloadIcon} width="16px" height="16px" />
-          <div>Download Selected</div>
-        </button>
-        <Modal showModal={showModal} handleClose={handleCloseModal}>
-          <div>
-            {checkedFiles.map((file) => {
-              return <div>{file.device}</div>;
-            })}
-          </div>
-        </Modal>
-      </div>
+      <TableHeader
+        files={files}
+        checkedFiles={checkedFiles}
+        showModal={showModal}
+        isIndeterminate={isIndeterminate}
+        setShowModal={setShowModal}
+        handleSelectAllChecked={handleSelectAllChecked}
+      ></TableHeader>
       <div className="table-container">
         <Table
-          columns={getFileTableColumns(handleOnChecked, fileList)}
-          data={fileList}
+          columns={getFileTableColumns(handleOnChecked, files)}
+          data={files}
         ></Table>
       </div>
+      <DownloadModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        checkedFiles={checkedFiles}
+      ></DownloadModal>
     </div>
   );
 };

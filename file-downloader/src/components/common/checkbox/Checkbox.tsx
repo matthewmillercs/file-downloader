@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import "./checkbox.scss";
 
 interface CheckboxProps {
   checked: boolean;
@@ -21,12 +22,16 @@ export const Checkbox: FC<CheckboxProps> = (props) => {
   }, [indeterminate]);
 
   return (
-    <input
-      type="checkbox"
-      onChange={onChange}
-      ref={checkboxRef}
-      checked={checked}
-      disabled={disabled}
-    ></input>
+    <>
+      <input
+        className={indeterminate ? "indeterminate" : undefined}
+        type="checkbox"
+        onChange={onChange}
+        ref={checkboxRef}
+        checked={checked}
+        disabled={disabled}
+      ></input>
+      <label className="checkbox-label"></label>
+    </>
   );
 };

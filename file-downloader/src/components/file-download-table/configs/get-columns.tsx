@@ -1,4 +1,4 @@
-import { Checkbox } from "../../common-components/checkbox/Checkbox";
+import { Checkbox } from "../../common/checkbox/Checkbox";
 import { Column, FileData } from "../../types";
 import availableIcon from "../../../assets/AvailableIcon.png";
 
@@ -35,7 +35,18 @@ export const getFileTableColumns = (
     {
       title: "Path",
       render: (file: FileData) => {
-        return <div>{file.path}</div>;
+        return (
+          <div
+            className={
+              file.status === "Available" ? "status-available" : undefined
+            }
+          >
+            <div>{file.path} </div>
+            {file.status === "Available" && (
+              <img src={availableIcon} width="20px" height="20px" />
+            )}
+          </div>
+        );
       },
     },
     {
@@ -43,9 +54,6 @@ export const getFileTableColumns = (
       render: (file: FileData) => {
         return (
           <div className="status">
-            {file.status === "Available" && (
-              <img src={availableIcon} width="16px" height="16px" />
-            )}
             <div>{file.status}</div>
           </div>
         );

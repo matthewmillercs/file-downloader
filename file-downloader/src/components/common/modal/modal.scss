@@ -17,3 +17,16 @@
   padding: 40px;
   z-index: 1000;
 }
+
+.close-button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+}
+.close-button:hover {
+  background-color: #ededed;
+}

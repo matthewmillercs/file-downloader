@@ -1,3 +1,7 @@
+.row-selected {
+  background-color: #ededed !important;
+}
+
 table {
   display: table;
   padding: 20px;
@@ -7,18 +11,17 @@ table {
 }
 
 thead {
-  border-top: 1px solid darkgray;
+  border-top: 1px solid #ededed;
   text-align: left;
   font-size: 20px;
 }
 
-th {
-  font-weight: 400;
+td > .status {
+  padding-left: 0px;
 }
 
-input[type="checkbox"]:indeterminate + label:before {
-  border: #1c4cbd;
-  background-color: #1c4cbd;
+th {
+  font-weight: 400;
 }
 
 tbody > tr:hover {
@@ -26,7 +29,7 @@ tbody > tr:hover {
 }
 
 tr {
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid #ededed;
   line-height: 40px;
 }
 
