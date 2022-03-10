@@ -1,53 +1,58 @@
 table {
-    display: table;
-    padding: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    overflow-x: auto;
+  display: table;
+  padding: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
 }
 
 thead {
-    text-align: left;
+  text-align: left;
+}
+
+input[type="checkbox"]:indeterminate + label:before {
+  border: #1c4cbd;
+  background-color: #1c4cbd;
 }
 
 tbody > tr:hover {
-    background-color: #ededed;
+  background-color: #ededed;
 }
 
 tr {
-    border-bottom: 1px solid darkgray;
-    line-height: 40px;
+  border-bottom: 1px solid darkgray;
+  line-height: 40px;
 }
 
 td,
 th {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .container {
-    margin: 20px;
-    border: 1px solid darkgray;
-    border-bottom: none;
+  margin: 20px;
+  border: 1px solid darkgray;
+  border-bottom: none;
 }
 
 .download-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 4px;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .download-button:hover {
-    background-color: #ededed;
+  background-color: #ededed;
 }
 
 .status {
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
 }
